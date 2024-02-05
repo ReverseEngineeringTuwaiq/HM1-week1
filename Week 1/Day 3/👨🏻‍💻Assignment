@@ -1,0 +1,189 @@
+***حساب عدد الكلمات***
+```md
+func countWords(in text: String) -> Int {
+    var wordCount = 0
+    var isInWord = false
+
+    for char in text {
+        if char != " " {
+            isInWord = true
+        } else if isInWord {
+            wordCount += 1
+            isInWord = false
+        }
+    }
+
+    if isInWord {
+        // If the last word extends to the end of the text
+        wordCount += 1
+    }
+
+    return wordCount
+}
+
+// Test Cases
+let txt1 = "Plant hope in the hearts of others"
+print(countWords(in: txt1)) // Should print 7
+
+let txt2 = "Nora is a very ambitious person"
+print(countWords(in: txt2)) // Should print 6
+
+let txt3 = "fine, Thank you"
+print(countWords(in: txt3)) // Should print 3
+
+let txt4 = "ok"
+print(countWords(in: txt4)) // Should print 1
+```
+
+***النصوص المتشابهة***
+```md
+func areStringsSimilar(_ string1: String, _ string2: String) -> String {
+    if string1 == string2 {
+        return "متشابهتين"
+    } else {
+        return "غير متشابهتين"
+    }
+}
+
+// الاختبار 1
+let test1 = areStringsSimilar("Anas", "anas")
+print(test1)
+
+// الاختبار 2
+let test2 = areStringsSimilar("Omer", "Omar")
+print(test2)
+
+// الاختبار 3
+let test3 = areStringsSimilar("Abdullah", "Abdullah")
+print(test3)
+
+// الاختبار 4
+let test4 = areStringsSimilar("Ayman", "Mishal")
+print(test4)
+```
+***بوابة الضرب المنطقي***
+```md
+func logicalAnd(a: Bool, b: Bool) -> Bool {
+    return a && b
+}
+
+// الاختبار 1
+let test1 = logicalAnd(a: true, b: false)
+print(test1) // يجب أن يطبع false
+
+// الاختبار 2
+let test2 = logicalAnd(a: true, b: true)
+print(test2) // يجب أن يطبع true
+
+// الاختبار 3
+let test3 = logicalAnd(a: false, b: true)
+print(test3) // يجب أن يطبع false
+
+// الاختبار 4
+let test4 = logicalAnd(a: false, b: false)
+print(test4) // يجب أن يطبع false
+```
+***مساحة المستطيل***
+```md
+func areaOfRectangle(width: Int, height: Int) -> Int {
+    return width * height
+}
+
+// الاختبار 1
+let test1 = areaOfRectangle(width: 9, height: 8)
+print(test1) // يجب أن يطبع 72
+
+// الاختبار 2
+let test2 = areaOfRectangle(width: 5, height: 5)
+print(test2) // يجب أن يطبع 25
+
+// الاختبار 3
+let test3 = areaOfRectangle(width: 4, height: 3)
+print(test3) // يجب أن يطبع 12
+
+// الاختبار 4
+let test4 = areaOfRectangle(width: 7, height: 4)
+print(test4) // يجب أن يطبع 28
+```
+*** حذف آخر حرف***
+```md
+func deleteLastChar(word: String) -> String {
+    // التحقق من وجود نص 
+    if word == "" {
+        return ""
+    }
+    
+    // حساب Index
+    var lastIndex = 0
+    var index = 0
+    for char in word {
+        lastIndex = index
+        index += 1
+    }
+    
+    // حذف آخر حرف من النص 
+    var deleteing = ""
+    index = 0
+    for char in word {
+        if index != lastIndex {
+            deleteing.append(char)
+        }
+        index += 1
+    }
+    
+    // إرجاع النص بعد حذف اخر حرف من النص
+    return deleteing
+}
+
+// الاختبار 1
+let test1 = deleteLastChar(word: "CoderHub")
+print(test1) // يجب أن يطبع 'CoderHu'
+
+// الاختبار 2
+let test2 = deleteLastChar(word: "Programming")
+print(test2) // يجب أن يطبع 'Programmin'
+
+// الاختبار 3
+let test3 = deleteLastChar(word: "Security")
+print(test3) // يجب أن يطبع 'Securit'
+
+// الاختبار 4
+let test4 = deleteLastChar(word: "A")
+print(test4) // يجب أن يطبع ''
+```
+***عدد حروف القيمة النصية***
+```md
+func nameCharLength(name: String) -> Int {
+    var charCount = 0
+    var spaceCount = 0
+    
+    // حساب عدد الحروف والمسافات باستخدام حلقة for
+    for char in name {
+        if char >= "A" && char <= "Z" || char >= "a" && char <= "z" {
+            charCount += 1
+        } else if char == " " {
+            spaceCount += 1
+        }
+    }
+    
+    // إجمالي عدد الحروف والمسافات
+    let totalLength = charCount + spaceCount
+    return totalLength
+}
+
+// الاختبار 1
+let test1 = nameCharLength(name: "Keep smiling")
+print(test1) // يجب أن يطبع 12
+
+// الاختبار 2
+let test2 = nameCharLength(name: "You can")
+print(test2) // يجب أن يطبع 7
+
+// الاختبار 3
+let test3 = nameCharLength(name: "awesome")
+print(test3) // يجب أن يطبع 7
+
+// الاختبار 4
+let test4 = nameCharLength(name: "CoderHub")
+print(test4) // يجب أن يطبع 8
+```
